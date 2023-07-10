@@ -2,7 +2,7 @@
  * @Author: OctopusRoe
  * @Date: 2023-07-10 14:36:10
  * @LastEditors: OctopusRoe
- * @LastEditTime: 2023-07-10 14:44:08
+ * @LastEditTime: 2023-07-10 15:49:23
  * @Description:
  */
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
   useTabs: false, // 是否启用tab取代空格符缩进，.editorconfig设置空格缩进，所以设置为false
   printWidth: 60, // 一行的字符数，如果超过会进行换行
   semi: true, // 行尾是否使用分号，默认为true
-  singleQuote: false, // 字符串是否使用单引号
+  singleQuote: true, // 字符串是否使用单引号
   trailingComma: 'none', // 对象或数组末尾是否添加逗号 none| es5| all
   jsxSingleQuote: false, // 在jsx里是否使用单引号
   bracketSpacing: true, // 对象大括号直接是否有空格，默认为true，效果：{ foo: bar }

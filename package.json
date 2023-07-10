@@ -62,7 +62,7 @@
     "start:prod": "cross-env NODE_ENV=development BASE_ENV=production webpack-dev-server -c ./webpack/webpack.dev.js",
     "build:dev": "cross-env NODE_ENV=production BASE_ENV=development webpack -c ./webpack/webpack.prod.js",
     "build:pre": "cross-env NODE_ENV=production BASE_ENV=preRelease webpack -c ./webpack/webpack.prod.js",
-    "format": "prettier -c --write \"src/**/*\" stylelint \"**/*.css\"",
+    "format": "prettier -c --write \"src/**/*\" && stylelint \"**/*.css\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "eslintConfig": {
