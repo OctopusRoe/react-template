@@ -2,31 +2,36 @@
  * @Author: OctopusRoe
  * @Date: 2023-07-10 11:38:41
  * @LastEditors: OctopusRoe
- * @LastEditTime: 2023-07-10 11:55:22
+ * @LastEditTime: 2023-07-20 11:26:01
  * @Description:
  */
 
-const isDEV = process.env.NODE_ENV === "development";
+const isDEV = process.env.NODE_ENV === 'development';
 module.exports = {
   // 执行顺序由右往左,所以先处理ts,再处理jsx,最后再试一下babel转换为低版本语法
   presets: [
     [
-      "@babel/preset-env",
+      '@babel/preset-env',
       {
         // 设置兼容目标浏览器版本,这里可以不写,babel-loader会自动寻找上面配置好的文件.browserslistrc
         // "targets": {
         //  "chrome": 35,
         //  "ie": 9
         // },
-        useBuiltIns: "usage", // 根据配置的浏览器兼容,以及代码中使用到的api进行引入polyfill按需添加
-        corejs: 3, // 配置使用core-js使用的版本
-      },
+        useBuiltIns: 'usage', // 根据配置的浏览器兼容,以及代码中使用到的api进行引入polyfill按需添加
+        corejs: 3 // 配置使用core-js使用的版本
+      }
     ],
-    "@babel/preset-react",
-    "@babel/preset-typescript",
+    [
+      '@babel/preset-react',
+      {
+        runtime: 'automatic'
+      }
+    ],
+    '@babel/preset-typescript'
   ],
   plugins: [
-    ["@babel/plugin-proposal-decorators", { legacy: true }],
-    isDEV && require.resolve("react-refresh/babel"),
-  ].filter(Boolean),
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
+    isDEV && require.resolve('react-refresh/babel')
+  ].filter(Boolean)
 };
