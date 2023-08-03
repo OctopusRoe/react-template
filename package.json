@@ -47,6 +47,7 @@
     "stylelint": "^15.10.1",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.0.0",
+    "svg-sprite-loader": "^6.0.11",
     "thread-loader": "^4.0.2",
     "typescript": "*",
     "web-vitals": "^2.1.0",

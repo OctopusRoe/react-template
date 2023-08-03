@@ -2,7 +2,7 @@
  * @Author: OctopusRoe
  * @Date: 2023-07-10 09:58:20
  * @LastEditors: OctopusRoe
- * @LastEditTime: 2023-07-17 14:53:50
+ * @LastEditTime: 2023-08-03 16:08:20
  * @Description:
  */
 const path = require('path');
@@ -63,6 +63,11 @@ module.exports = {
           'postcss-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        include: [path.resolve(__dirname, '../src/icon')]
       },
       {
         test: /.(png|jpg|jpeg|gif|svg)$/,
