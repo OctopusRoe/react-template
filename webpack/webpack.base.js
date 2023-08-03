@@ -2,7 +2,7 @@
  * @Author: OctopusRoe
  * @Date: 2023-07-10 09:58:20
  * @LastEditors: OctopusRoe
- * @LastEditTime: 2023-08-03 16:08:20
+ * @LastEditTime: 2023-08-03 18:54:20
  * @Description:
  */
 const path = require('path');
@@ -72,6 +72,7 @@ module.exports = {
       {
         test: /.(png|jpg|jpeg|gif|svg)$/,
         type: 'asset',
+        exclude: [path.resolve(__dirname, '../src/icon')],
         parser: {
           dataUrlCondition: {
             maxSize: 10 * 1024
