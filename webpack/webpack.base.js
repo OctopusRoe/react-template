@@ -2,7 +2,7 @@
  * @Author: OctopusRoe
  * @Date: 2023-07-10 09:58:20
  * @LastEditors: OctopusRoe
- * @LastEditTime: 2023-08-03 18:54:20
+ * @LastEditTime: 2023-08-05 21:55:20
  * @Description:
  */
 const path = require('path');
@@ -30,7 +30,7 @@ module.exports = {
         include: [path.resolve(__dirname, '../src')]
       },
       {
-        test: /.css$/,
+        test: /\.css$/,
         include: [path.resolve(__dirname, '../src')],
         use: [
           isDev
@@ -41,7 +41,7 @@ module.exports = {
         ]
       },
       {
-        test: /.less$/,
+        test: /\.less$/,
         include: [path.resolve(__dirname, '../src')],
         use: [
           isDev
@@ -53,7 +53,7 @@ module.exports = {
         ]
       },
       {
-        test: /.sass$/,
+        test: /\.sass$/,
         include: [path.resolve(__dirname, '../src')],
         use: [
           isDev
@@ -61,7 +61,12 @@ module.exports = {
             : MiniCssExtractPlugin.loader, // 开发环境使用style-looader,打包模式抽离css
           'css-loader',
           'postcss-loader',
-          'sass-loader'
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: ''
+            }
+          }
         ]
       },
       {
@@ -70,7 +75,7 @@ module.exports = {
         include: [path.resolve(__dirname, '../src/icon')]
       },
       {
-        test: /.(png|jpg|jpeg|gif|svg)$/,
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
         type: 'asset',
         exclude: [path.resolve(__dirname, '../src/icon')],
         parser: {
@@ -83,7 +88,7 @@ module.exports = {
         }
       },
       {
-        test: /.(woff2?|eot|ttf|otf)$/,
+        test: /\.(woff2?|eot|ttf|otf)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {
@@ -95,7 +100,7 @@ module.exports = {
         }
       },
       {
-        test: /.(mp4|webm|ogg|mp3|wav|flac|aac)$/,
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {
@@ -103,8 +108,7 @@ module.exports = {
           }
         },
         generator: {
-          filename:
-            'media/[name][name].[contenthash:8][ext]'
+          filename: 'media/[name].[contenthash:8][ext]'
         }
       }
     ]
