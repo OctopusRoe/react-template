@@ -2,7 +2,7 @@
  * @Author: OctopusRoe
  * @Date: 2023-07-10 09:58:20
  * @LastEditors: OctopusRoe
- * @LastEditTime: 2023-08-08 18:15:01
+ * @LastEditTime: 2023-08-08 18:20:06
  * @Description:
  */
 const path = require('path');
@@ -39,7 +39,8 @@ module.exports = {
     filename: 'js/[name].[chunkhash:8].js',
     path: path.join(__dirname, '../dist'),
     clean: true,
-    publicPath: '/'
+    publicPath:
+      process.env.NODE_ENV === 'development' ? '/' : './'
   },
   cache: {
     type: 'filesystem' // 使用文件缓存
