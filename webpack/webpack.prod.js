@@ -2,7 +2,7 @@
  * @Author: OctopusRoe
  * @Date: 2023-07-10 10:37:46
  * @LastEditors: OctopusRoe
- * @LastEditTime: 2023-08-06 19:13:47
+ * @LastEditTime: 2023-08-09 09:12:29
  * @Description:
  */
 const { merge } = require('webpack-merge');
@@ -45,6 +45,7 @@ module.exports = merge(baseConfig, {
       new TerserPlugin({
         // 压缩js
         parallel: true, // 开启多线程压缩
+        extractComments: false, //不将注释提取到单独的文件中
         terserOptions: {
           compress: {
             pure_funcs: ['console.log'] // 删除console.log
