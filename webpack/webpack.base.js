@@ -2,7 +2,7 @@
  * @Author: OctopusRoe
  * @Date: 2023-07-10 09:58:20
  * @LastEditors: OctopusRoe
- * @LastEditTime: 2023-08-08 18:20:06
+ * @LastEditTime: 2023-08-12 16:24:30
  * @Description:
  */
 const path = require('path');
@@ -40,7 +40,7 @@ module.exports = {
     path: path.join(__dirname, '../dist'),
     clean: true,
     publicPath:
-      process.env.NODE_ENV === 'development' ? '/' : './'
+      process.env.NODE_ENV === 'development' ? '/' : '/'
   },
   cache: {
     type: 'filesystem' // 使用文件缓存
@@ -108,7 +108,7 @@ module.exports = {
         },
         generator: {
           filename: 'images/[name].[contenthash:8][ext]',
-          publicPath: './'
+          publicPath: '/'
         }
       },
       {
@@ -121,7 +121,7 @@ module.exports = {
         },
         generator: {
           filename: 'fonts/[name].[contenthash:8][ext]',
-          publicPath: './'
+          publicPath: '/'
         }
       },
       {
@@ -134,7 +134,7 @@ module.exports = {
         },
         generator: {
           filename: 'media/[name].[contenthash:8][ext]',
-          publicPath: './'
+          publicPath: '/'
         }
       }
     ]
