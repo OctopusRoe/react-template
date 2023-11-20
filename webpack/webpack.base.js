@@ -2,13 +2,14 @@
  * @Author: OctopusRoe
  * @Date: 2023-07-10 09:58:20
  * @LastEditors: OctopusRoe
- * @LastEditTime: 2023-08-12 16:24:30
+ * @LastEditTime: 2023-11-20 15:09:01
  * @Description:
  */
 const path = require('path');
 const HtmlWepackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackBar = require('webpackbar');
 const isDev = process.env.NODE_ENV === 'development';
 
 const cssLoader = () => {
@@ -87,7 +88,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              additionalData: ''
+              additionalData: '' // 需要全插入scss文件的内容
             }
           }
         ]
@@ -154,6 +155,11 @@ module.exports = {
         '../public/index.html'
       ),
       inject: true
+    }),
+    new WebpackBar({
+      color: '#85d', // 默认green，进度条颜色支持HEX
+      basic: false, // 默认true，启用一个简单的日志报告器
+      profile: false // 默认false，启用探查器。
     }),
     new webpack.DefinePlugin({
       'process.env.BASE_ENV': JSON.stringify(
