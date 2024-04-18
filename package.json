@@ -67,7 +67,7 @@
     "build:pre": "cross-env NODE_ENV=production BASE_ENV=preRelease webpack -c ./webpack/webpack.prod.js",
     "format": "prettier -c --write \"src/**/*\" && stylelint \"**/*.css\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker-build": "docker build -f ./docker/Dockerfile -t mithril ."
+    "docker-build": "docker build -f ./docker/Dockerfile -t mithril . && docker save -o mithril.tar mithril:latest"
   },
   "eslintConfig": {
     "extends": [
