@@ -2,7 +2,7 @@
  * @Author: OctopusRoe
  * @Date: 2023-07-10 09:58:20
  * @LastEditors: OctopusRoe
- * @LastEditTime: 2023-11-20 15:09:01
+ * @LastEditTime: 2024-05-30 19:00:49
  * @Description:
  */
 const path = require('path');
@@ -25,9 +25,12 @@ const cssLoader = () => {
           localName,
           options
         ) => {
-          return localName.includes('ant')
-            ? localName
-            : null;
+          if (
+            context.resourcePath.includes('node_modules')
+          ) {
+            return localName;
+          }
+          return null;
         }
       }
     }
