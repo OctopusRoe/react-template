@@ -2,7 +2,7 @@
  * @Author: OctopusRoe
  * @Date: 2023-07-10 09:58:20
  * @LastEditors: OctopusRoe
- * @LastEditTime: 2024-05-30 19:00:49
+ * @LastEditTime: 2024-06-05 17:26:32
  * @Description:
  */
 const path = require('path');
@@ -58,7 +58,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: [path.resolve(__dirname, '../src')],
+        // include: [path.resolve(__dirname, '../src')],
         use: [
           isDev
             ? 'style-loader'
